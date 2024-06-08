@@ -3,6 +3,7 @@ package com.api.blog.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +29,7 @@ public class CommentController {
 		return new ResponseEntity<CommentDto>(createdComment, HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/comment/{commentId}")
+	@DeleteMapping("/comment/{commentId}")
 	public ResponseEntity<ApiResponse> createComment(@PathVariable Integer commentId){
 		
 		this.commentService.deleteComment(commentId);
